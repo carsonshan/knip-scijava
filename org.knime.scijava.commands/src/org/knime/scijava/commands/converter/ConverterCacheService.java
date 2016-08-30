@@ -11,6 +11,9 @@ import org.knime.core.data.convert.java.DataCellToJavaConverterFactory;
 import org.knime.core.node.ExecutionContext;
 import org.scijava.service.Service;
 
+// FIXME NAMING (KNIPConverterCache?!)
+// FIXME CACHING (isn't implemented everywhere, yet)
+// FIXME can we always delegate to Jonathans implementations?
 public interface ConverterCacheService extends Service {
 
     /**

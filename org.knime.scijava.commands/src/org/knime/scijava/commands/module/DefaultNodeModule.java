@@ -59,6 +59,8 @@ class DefaultNodeModule implements NodeModule {
         }
 
         // FIXME: do we need them all?
+        // FIXME add our own preprocessors, i.e. to call preprocess?
+        // FIXME or move this to "preprocess"
         final List<PreprocessorPlugin> pre = ps
                 .createInstancesOfType(PreprocessorPlugin.class);
 
@@ -77,6 +79,7 @@ class DefaultNodeModule implements NodeModule {
     }
 
     private void preProcess(final DataRow input) throws Exception {
+        // input can be null if source node
         if (input != null) {
             for (final Entry<Integer, ModuleItem<?>> entry : inputMapping
                     .entrySet()) {
@@ -90,6 +93,7 @@ class DefaultNodeModule implements NodeModule {
 
     private void postProcess(final CellOutput output,
             final ExecutionContext ctx) throws Exception {
+        // output can be null if sink node
         if (output != null) {
             final List<DataCell> cells = new ArrayList<DataCell>();
             for (final ModuleItem<?> entry : module.getInfo().outputs()) {
@@ -109,6 +113,8 @@ class DefaultNodeModule implements NodeModule {
     @Override
     public void run(final DataRow input, final CellOutput output,
             final ExecutionContext ctx) throws Exception {
+
+        // FIXME: Nicer logic possible here?
         preProcess(input);
 
         if (outputListener != null) {

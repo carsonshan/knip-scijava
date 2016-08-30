@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.knime.core.data.convert.util.ClassUtil;
 import org.knime.core.node.defaultnodesettings.SettingsModel;
-import org.knime.scijava.commands.EnforcerHook;
+import org.knime.scijava.commands.StyleHook;
 import org.knime.scijava.commands.converter.ConverterCacheService;
 import org.knime.scijava.commands.settings.types.SettingsModelColumnSelectionType;
 import org.scijava.module.ModuleItem;
@@ -59,7 +59,7 @@ public class DefaultSettingsModelTypeService
 
         // FIXME why do I need this check in case of scripts?
         if (item.getWidgetStyle() != null
-                && item.getWidgetStyle().equals(EnforcerHook.COLUMNSELECTION)) {
+                && item.getWidgetStyle().equals(StyleHook.COLUMNSELECTION)) {
             return new SettingsModelColumnSelectionType();
         } else {
 

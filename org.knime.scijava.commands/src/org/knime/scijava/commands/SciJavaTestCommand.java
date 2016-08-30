@@ -12,7 +12,7 @@ public class SciJavaTestCommand implements Command {
     @Parameter
     private MultiOutputListener rowOutput;
 
-    @Parameter(label = "From Text")
+    @Parameter(label = "From Text", style = StyleHook.COLUMNSELECTION)
     private String fromText;
 
     @Parameter(label = "From Int")
@@ -23,12 +23,11 @@ public class SciJavaTestCommand implements Command {
 
     @Override
     public void run() {
-
         for (int i = 0; i < fromInt; i++) {
             outInt = i;
             rowOutput.notifyListener();
         }
-
     }
+
 
 }

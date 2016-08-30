@@ -224,6 +224,7 @@ public class SciJavaCommandNodeModel extends NodeModel {
         }
     }
 
+    // FIXME must be super performant
     @Override
     public StreamableOperator createStreamableOperator(
             final PartitionInfo partitionInfo, final PortObjectSpec[] inSpecs)

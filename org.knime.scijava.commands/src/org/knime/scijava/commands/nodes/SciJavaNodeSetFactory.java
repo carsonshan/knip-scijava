@@ -106,7 +106,7 @@ public class SciJavaNodeSetFactory implements NodeSetFactory {
 
     @Override
     public ConfigRO getAdditionalSettings(final String id) {
-        // TODO manage versions?
+        // FIXME manage versions?
         final NodeSettings settings = new NodeSettings(
                 "scijavacommand-factory");
         settings.addString(SCIJAVA_COMMAND_KEY, id);
